@@ -13,6 +13,10 @@ load --fn=source/notes.md
 prompt --task=prompts/write-back-cover-copy.md --persona=prompts/persona-marketing.md --globals=metadata.yaml --prompt_tag=bcc
 # Write it out
 squash --where="prompt_tag='bcc'" --fn=source/bcc.md
+# load it back in
+load --fn=source/bcc.md
+prompt --task=prompts/convert-to-narrative.md --persona=prompts/persona-reader.md --prompt_tag=narrative
+transfer-prompts --where="prompt_tag='narrative'"
 
 
 
