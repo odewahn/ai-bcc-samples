@@ -2,9 +2,9 @@ init
 load --fn=source/cn-java-2e.epub
 transform --transformation=html2md
 # Take notes on the preface
-prompt --task=prompts/preface-analysis.md --globals=metadata.yaml --where="block_tag like 'preface%'"
+prompt --task=prompts/take-notes-preface.md --globals=metadata.yaml --where="block_tag like 'preface%'"
 # Take notes on the table of contents
-prompt --task=prompts/toc-condenser.md --globals=metadata.yaml --where="block_tag like 'toc%'"
+prompt --task=prompts/take-notes-toc.md --globals=metadata.yaml --where="block_tag like 'toc%'"
 # Write the prompt notes out to a file
 squash --fn=source/notes.md
 # Load the notes back in.  This is something of an ugly hack
