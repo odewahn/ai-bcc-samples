@@ -6,29 +6,27 @@ This is a prompter project that will write the back cover copy for an EPUB you p
 
 - [AI Enabled SDLC](examples/bcc-ai-enabled-sdlc.md)
 
-- Cloud Native Java, 2e -- https://github.com/odewahn/ai-bcc-samples/blob/main/examples/bcc-cn-java-2e.md
+- [Cloud Native Java, 2e](examples/bcc-cn-java-2e.md)
 
-- Hands on LLMs -- https://github.com/odewahn/ai-bcc-samples/blob/main/examples/bcc-hands-on-llm.md
+- [Hands on LLMs](examples/bcc-hands-on-llm.md)
 
 ## How it works
 
 First, it uses the Preface and Table of Contents from the EPUB to "take notes" about the key points:
 
-https://github.com/odewahn/ai-bcc-samples/blob/main/prompts/take-notes-preface.md
+- [Convert preface into notes](prompts/take-notes-preface.md)
 
-https://github.com/odewahn/ai-bcc-samples/blob/main/prompts/take-notes-toc.md
+- [Convert TOC into notes](prompts/take-notes-toc.md)
 
-Here's a sample of the notes it took on Cloud Native Java:
+Here's a sample of the notes it took on [Cloud Native Java](examples/notes-cn-java-2e.md).
 
-https://github.com/odewahn/ai-bcc-samples/blob/main/examples/notes-cn-java-2e.md
+Then it uses these notes to write the actual copy:
 
-Then it uses these notes to write the BCC:
+- [write back cover copy](prompts/write-back-cover-copy.md)
 
-https://github.com/odewahn/ai-bcc-samples/blob/main/prompts/write-back-cover-copy.md
+These are all used in the [go.prompter](go.prompter) script to generate the final BCC.
 
-These are all used in the `go.prompter` script to generate the final BCC.
-
-```bash
+```sh
 init
 load --fn=source/cn-java-2e.epub
 transform --transformation=html2md
