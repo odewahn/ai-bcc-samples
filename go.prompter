@@ -1,0 +1,19 @@
+init
+load --fn=source/cn-java-2e.epub
+transform --transformation=html2md
+# Take notes on the preface
+prompt --task=prompts/preface-analysis.md --globals=metadata.yaml --where="block_tag like 'preface%'"
+# Take notes on the table of contents
+prompt --task=prompts/toc-condenser.md --globals=metadata.yaml --where="block_tag like 'toc%'"
+# Write the prompt notes out to a file
+squash --fn=source/notes.md
+# Load the notes back in.  This is something of an ugly hack
+load --fn=source/notes.md
+# Now ask for the full analysis
+prompt --task=prompts/write-back-cover-copy.md --persona=prompts/persona-marketing.md --globals=metadata.yaml --prompt_tag=bcc
+# Write it out
+squash --where="prompt_tag='bcc'" --fn=source/bcc.md
+
+
+
+
